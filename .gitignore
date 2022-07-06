@@ -28,3 +28,6 @@ package-lock.json
 /storage/dcc-data/
 /stubs
 /vendor
+.history
+/public/mix-manifest.json
+yarn.lock

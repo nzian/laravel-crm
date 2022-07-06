@@ -4,11 +4,11 @@ namespace Webkul\Admin\Http\Controllers\Lead;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Event;
-use Webkul\Admin\Http\Controllers\Controller;
 use Webkul\Admin\Http\Requests\LeadForm;
 use Webkul\Lead\Repositories\LeadRepository;
-use Webkul\Lead\Repositories\PipelineRepository;
+use Webkul\Admin\Http\Controllers\Controller;
 use Webkul\Lead\Repositories\StageRepository;
+use Webkul\Lead\Repositories\PipelineRepository;
 
 class LeadController extends Controller
 {
@@ -127,7 +127,7 @@ class LeadController extends Controller
             } else {
                 foreach ($pipeline->stages as $stage) {
                     $query = $this->leadRepository->getLeadsQuery($pipeline->id, $stage->id, request('search') ?? '', $createdAt);
-
+                    //dd($query->toSql());
                     $paginator = $query->paginate(10);
 
                     $data[$stage->id] = [
@@ -258,7 +258,8 @@ class LeadController extends Controller
             $data['lead_pipeline_stage_id'] = $stage->id;
         }
 
-        $lead = $this->leadRepository->update($data, $id);        
+        $lead = $this->leadRepository->update($data, $id);
+
 
         Event::dispatch('lead.update.after', $lead);
 

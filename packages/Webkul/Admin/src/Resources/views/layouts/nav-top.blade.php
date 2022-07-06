@@ -2,7 +2,7 @@
     <div class="navbar-top-left">
         <div class="brand-logo">
             <a href="{{ route('admin.dashboard.index') }}">
-                <img src="{{ asset('vendor/webkul/admin/assets/images/logo.svg') }}" alt="{{ config('app.name') }}"/>
+                <img src="{{ asset('vendor/webkul/admin/assets/images/alt-logo-200.png') }}" style="height:50px" alt="{{ config('app.name') }}"/>
             </a>
         </div>
     </div>
@@ -11,7 +11,7 @@
         <div class="profile-info">
             <div class="dropdown-toggle">
                 <div class="info">
-                    <span class="howdy">{{ __('admin::app.common.locale') }}</span> 
+                    <span class="howdy">{{ __('admin::app.common.locale') }}</span>
                     <span class="user">{{ __('admin::app.common.'.app()->getLocale()) }}</span>
                 </div>
 
